@@ -1,0 +1,27 @@
+name: CI-CD
+
+on: 
+  push:
+    branches: ["main"]
+  workflow_dispatch: 
+
+  jobs:
+    CI:
+      runs-on: ubuntu-latest
+      steps:
+        - name: passo 01
+            run: echo "Baixar a base do código"
+        - name: passo 02
+            run : echo "Criar a imagem dos microsserviços"
+        - name: Passo 03
+            run: echo "Subir as imagens para o repositorio da imagem Docker (Dockerhub)"
+      CD: 
+        runs-on: ubuntu-latest
+        steps: 
+        - name: passo 01
+            run: echo "Baixar a base de código"
+        - name: passo 02
+            run : echo "Autenticar na AWS"
+        - name: Passo 03
+            run: echo "Deploy dos micros serviçõs no Kubernetes"
+          
