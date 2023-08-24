@@ -9,8 +9,14 @@ on:
     CI:
       runs-on: ubuntu-latest
       steps:
-        - name: passo 01
-            run: echo "Baixar a base do código"
+        - name: Checkout da base de códigos
+            uses: actions/checkout@v3.5.3
+        - name: Autenticação no Dockerhub
+            uses: docker/login-action@v2.2.0
+            with:
+              username: ${{secrets.DOCKERHUB_USR}}
+              password: ${{secrets.DOCKERHUB_PWD}}
+                            
         - name: passo 02
             run : echo "Criar a imagem dos microsserviços"
         - name: Passo 03
